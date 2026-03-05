@@ -1,11 +1,16 @@
-# app.py
-def add(a, b):
-    return a - b  # Bug: Should be a + b
+from flask import Flask
+import os
 
-# test_app.py
-import unittest
-from app import add
+app = Flask(__name__)
 
-class TestApp(unittest.TestCase):
-    def test_add(self):
-        self.assertEqual(add(2, 3), 5) # This will fail
+@app.route('/')
+def hello():
+    # This is the "Healthy" version of the app
+    return "<h1>GitOps Project Live on AWS! v1.0</h1>"
+
+@app.route('/health')
+def health():
+    return "OK", 200
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
