@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-app
+  namespace: default
+spec:
+  replicas: 2  # We request 2 servers (Pods) for high availability
+  selector:
+    matchLabels:
+      app: gitops-app
+  template:
+    metadata:
+      labels:
+        app: gitops-app
+    spec:
+      containers:
+      - name: gitops-app
+        image: python:3.9-slim # We will change this to your real image later
+        command: ["/bin/sh", "-c", "pip install flask && python -c 'from flask import Flask; app = Flask(__name__); app.route(\"/\")(lambda: \"<h1>GitOps Live!</h1>\"); app.run(host=\"0.0.0.0\", port=5000)'"]
+        ports:
+        - containerPort: 5000
