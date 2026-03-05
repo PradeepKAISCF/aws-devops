@@ -1,13 +1,29 @@
-#commit
 from flask import Flask
-import os
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    # This is the "Healthy" version of the app
-    return "<h1>GitOps Project Live on AWS! v1.0</h1>"
+    html_content = """
+    <html>
+    <head>
+        <style>
+            body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; background-color: #f0f8ff; }
+            h1 { color: #2e8b57; }
+            .box { border: 2px solid #2e8b57; padding: 20px; display: inline-block; border-radius: 10px; background-color: white; }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <h1>🚀 GitOps CI/CD Pipeline Success! 🚀</h1>
+            <h2>Version 2.0 is Live!</h2>
+            <p>If you are seeing this, your GitHub Actions built the new Docker image,<br>
+            updated the deployment file, and Argo CD automatically synced it to AWS.</p>
+        </div>
+    </body>
+    </html>
+    """
+    return html_content
 
 @app.route('/health')
 def health():
