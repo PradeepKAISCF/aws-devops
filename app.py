@@ -16,6 +16,7 @@ def hello():
     <body>
         <div class="box">
             <h1>🚀 GitOps CI/CD Pipeline Success! 🚀</h1>
+            <h2> Sandhichitom </h2>
             <h2>Version 2.0 is Live!</h2>
             <p>If you are seeing this, your GitHub Actions built the new Docker image,<br>
             updated the deployment file, and Argo CD automatically synced it to AWS.</p>
