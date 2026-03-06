@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: gitops-app
-        image: pradeepkaiscf/gitops-flask-app:75f72c9038080a7b7f176ca4717ca069656ac835
+        image: pradeepkaiscf/gitops-flask-app:326dd21fb1b3bd66ad71e462368d939d145c3082
         # Notice the command line is GONE
         ports:
         - containerPort: 5000
